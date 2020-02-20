@@ -1,6 +1,6 @@
 package andyfryman.chinchopa;
 
-import andyfryman.chinchopa.strategy.DeathStrategy;
+import andyfryman.chinchopa.strategy.*;
 import skadistats.clarity.processor.runner.SimpleRunner;
 import skadistats.clarity.source.MappedFileSource;
 import skadistats.clarity.source.Source;
@@ -12,6 +12,12 @@ public class Main {
         String command = args.length > 1 ? args[1] : "";
         Object strategy;
         switch (command) {
+            case "gold":
+                strategy = new GoldStrategy();
+                break;
+            case "experience":
+                strategy = new ExperienceStrategy();
+                break;
             case "death":
             default:
                 strategy = new DeathStrategy();

@@ -6,28 +6,28 @@ import org.slf4j.LoggerFactory;
 import skadistats.clarity.model.CombatLogEntry;
 import skadistats.clarity.processor.gameevents.OnCombatLogEntry;
 
-public class DeathStrategy {
+public class GoldStrategy {
 
-    private final Logger log = LoggerFactory.getLogger(DeathStrategy.class.getPackage().getClass());
+    private final Logger log = LoggerFactory.getLogger(GoldStrategy.class.getPackage().getClass());
 
     private static final Compile compile = new Compile();
 
-    public DeathStrategy() {
+    public GoldStrategy() {
         onStart();
     }
 
     public void onStart() {
-        log.info("time,victim,slayer");
+        log.info("time,target,amount");
     }
 
     @OnCombatLogEntry
     public void onCombatLogEntry(CombatLogEntry cle) {
         switch (cle.getType()) {
-            case DOTA_COMBATLOG_DEATH:
+            case DOTA_COMBATLOG_GOLD:
                 log.info("{},{},{}",
                         compile.time(cle),
                         compile.target(cle),
-                        compile.attacker(cle)
+                        cle.getValue()
                 );
                 break;
         }
