@@ -17,7 +17,7 @@ public class DeathStrategy {
     }
 
     public void onStart() {
-        log.info("time,victim,slayer");
+        log.info("time,target,attacker");
     }
 
     @OnCombatLogEntry

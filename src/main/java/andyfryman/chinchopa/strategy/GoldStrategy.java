@@ -17,7 +17,7 @@ public class GoldStrategy {
     }
 
     public void onStart() {
-        log.info("time,target,amount");
+        log.info("time,target,value");
     }
 
     @OnCombatLogEntry

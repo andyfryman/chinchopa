@@ -24,9 +24,9 @@ public class Compile {
         return time;
     }
 
-    public String name(String attackerName, boolean isIllusion) {
-        attackerName = attackerName.replace("npc_dota_", "");
-        return attackerName != null ? attackerName + (isIllusion ? " (illusion)" : "") : "UNKNOWN";
+    public String name(String name, boolean isIllusion) {
+        name = name.replace("npc_dota_", "").replace("dota_", "");
+        return name != null ? name + (isIllusion ? " (illusion)" : "") : "UNKNOWN";
     }
 
     public String attacker(CombatLogEntry cle) {
@@ -35,6 +35,18 @@ public class Compile {
 
     public String target(CombatLogEntry cle) {
         return name(cle.getTargetName(), cle.isTargetIllusion());
+    }
+
+    public String inflictor(CombatLogEntry cle) {
+        return name(cle.getInflictorName() != null ? cle.getInflictorName() : "", cle.isAttackerIllusion());
+    }
+
+    public String damageSource(CombatLogEntry cle) {
+        return name(cle.getDamageSourceName(), cle.isAttackerIllusion());
+    }
+
+    public String damageTarget(CombatLogEntry cle) {
+        return name(cle.getTargetSourceName(), cle.isTargetIllusion());
     }
 
 }
