@@ -3,13 +3,7 @@ package andyfryman.chinchopa;
 import org.joda.time.Duration;
 import org.joda.time.format.PeriodFormatter;
 import org.joda.time.format.PeriodFormatterBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import skadistats.clarity.model.CombatLogEntry;
-import skadistats.clarity.processor.gameevents.OnCombatLogEntry;
-import skadistats.clarity.processor.runner.SimpleRunner;
-import skadistats.clarity.source.MappedFileSource;
-import skadistats.clarity.wire.common.proto.DotaUserMessages;
 
 public class Compile {
 
