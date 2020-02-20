@@ -5,7 +5,7 @@
 ## Build
 
 ```shell script
-docker build -t chinchopa
+docker build . -t chinchopa
 ```
 
 ## Run
