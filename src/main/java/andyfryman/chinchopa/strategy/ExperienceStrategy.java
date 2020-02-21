@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import skadistats.clarity.model.CombatLogEntry;
 import skadistats.clarity.processor.gameevents.OnCombatLogEntry;
+import skadistats.clarity.wire.common.proto.DotaUserMessages;
 
 public class ExperienceStrategy {
 
@@ -17,16 +18,17 @@ public class ExperienceStrategy {
     }
 
     public void onStart() {
-        log.info("time,target,value");
+        log.info("time,target,reason,value");
     }
 
     @OnCombatLogEntry
     public void onCombatLogEntry(CombatLogEntry cle) {
         switch (cle.getType()) {
             case DOTA_COMBATLOG_XP:
-                log.info("{},{},{}",
+                log.info("{},{},{},{}",
                         compile.time(cle),
                         compile.target(cle),
+                        cle.getXpReason(),
                         cle.getValue()
                 );
                 break;
