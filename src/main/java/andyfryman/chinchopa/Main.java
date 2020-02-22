@@ -12,6 +12,9 @@ public class Main {
         String command = args.length > 1 ? args[1] : "";
         Object strategy;
         switch (command) {
+            case "ability":
+                strategy = new AbilityStrategy();
+                break;
             case "item":
                 strategy = new ItemStrategy();
                 break;
