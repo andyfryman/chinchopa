@@ -37,6 +37,9 @@ public class Main {
             default:
                 strategy = new DeathStrategy();
                 break;
+            case "debug":
+                strategy = new DebugStrategy();
+                break;
         }
 
         new SimpleRunner(source).runWith(strategy);

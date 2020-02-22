@@ -4,7 +4,7 @@ REPLAY_FILE="replay.dem"
 REPLAY_COMM=()
 if [ "$#" -eq  "0" ]
   then
-    REPLAY_COMM=(ability item purchase damage death experience gold heal)
+    REPLAY_COMM=(ability item purchase damage death experience gold heal debug)
   else
     REPLAY_COMM=($1)
 fi
