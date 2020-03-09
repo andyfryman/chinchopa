@@ -24,6 +24,10 @@ public class Compile {
         return time;
     }
 
+    public String time(float time) {
+        return GAMETIME_FORMATTER.print(Duration.millis((int) (1000.0f * time)).toPeriod());
+    }
+
     public String name(String name, boolean isIllusion) {
         name = name.replace("npc_dota_", "").replace("dota_", "");
         return name != null ? name + (isIllusion ? " (illusion)" : "") : "UNKNOWN";
@@ -47,6 +51,17 @@ public class Compile {
 
     public String damageTarget(CombatLogEntry cle) {
         return name(cle.getTargetSourceName(), cle.isTargetIllusion());
+    }
+
+    public String team(int team) {
+        switch (team) {
+            case 2:
+                return "Radiant";
+            case 3:
+                return "Dire";
+            default:
+                return "";
+        }
     }
 
 }
